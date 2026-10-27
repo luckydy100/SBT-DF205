@@ -1,0 +1,28 @@
+CASE REFERENCE: SBT-DF205-C1
+COURSE: SBT-DF205 Mobile and IoT Forensics - Case 1
+STUDENT ID: 2025-FWSD-11378
+EXAMINER: (blank per student preference)
+
+EVIDENCE SOURCE:
+  URL: https://digitalcorpora.s3.amazonaws.com/corpora/mobile/android_10/Non-Cellebrite%20Extraction/Pixel%203.zip
+  Archive: Pixel 3.zip
+  Archive size: 4.9 GiB (5,247,820,897 bytes)
+  Extracted size: 8.6 GiB
+  File count: 64,550
+  Archive SHA-256: ca6918ef8b20486b6a5ded15609ac51318f377829480f93be3ba15364a8aa00a
+
+EVIDENCE ATTRIBUTION:
+  Joshua Hickman, Android 10 Pixel 3 dataset, Digital Corpora
+  Acquisition method: Rooted via TWRP, logical extraction via Cellebrite UFED, converted to non-Cellebrite format (see 1_Pixel3_Image.pptx slide 4)
+
+ENVIRONMENT:
+  OS: Kali GNU/Linux Rolling, kernel 6.16.8+kali-amd64
+  unzip: 6.00
+  sha256sum: 9.7 (GNU coreutils)
+
+TIMEZONE:
+  System local: EDT (UTC-04:00)
+  All report timestamps: UTC (unless noted)
+
+PATH SHORTCUT:
+  P3 = /home/kali/SBT-DF205-C1/working/Pixel 3

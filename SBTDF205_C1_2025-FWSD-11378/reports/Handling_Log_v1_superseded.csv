@@ -1,0 +1,16 @@
+# CASE: SBT-DF205-C1 | Examiner:  | Student ID: 2025-FWSD-11378
+# TIMEZONE NOTE: System local time is EDT (UTC-04:00). All timestamps below are normalized to UTC unless noted otherwise.
+# TIMESTAMP PROVENANCE: "date -u" entries are contemporaneous system captures (authoritative). "mtime" entries are filesystem modification times of evidence-handling artifacts (corroborating).
+Action,Timestamp_UTC,Examiner,Tool_Version,Evidence_Reference,Details
+Case Directory Created,2026-10-27T20:04:00Z,,N/A,mtime of ~/SBT-DF205-C1/,Created ~/SBT-DF205-C1/"{evidence,working,reports,tools,screenshots}" (local 16:04 EDT)
+Screenshot - Working Dir Captured,2026-10-27T20:06:00Z,,scrot,mtime of screenshots/working_dir.png,"Captured directory structure at ~/SBT-DF205-C1/"
+Archive Located,2026-10-27T20:18:00Z,,N/A,mtime of evidence/Pixel 3.zip,Archive present at ~/SBT-DF205-C1/evidence/Pixel 3.zip (local 16:18 EDT)
+Screenshot - Archive File Captured,2026-10-27T20:18:00Z,,scrot,mtime of screenshots/pixel3_file.png,Captured evidence archive listing
+Integrity Check (Baseline),2026-10-27T20:19:44Z,,sha256sum 9.7,reports/archive_sha256_baseline.txt,"SHA-256: ca6918ef8b20486b6a5ded15609ac51318f377829480f93be3ba15364a8aa00a"
+Extraction Completed,2026-10-27T20:27:00Z,,UnZip 6.00,mtime of working/Pixel 3/,"unzip -q ../evidence/Pixel 3.zip; extraction start time inferred (not logged); final size 8.6 GiB / 64,550 files"
+Screenshot - Extracted Data Captured,2026-10-27T20:56:00Z,,scrot,mtime of screenshots/working_pixel3_file.png,Captured extracted Pixel 3 folder
+Integrity Check (Post-Extraction),2026-10-27T20:59:00Z,,sha256sum 9.7,reports/archive_sha256_post.txt,"SHA-256: ca6918ef8b20486b6a5ded15609ac51318f377829480f93be3ba15364a8aa00a - HASHES MATCH baseline"
+Screenshot - Tools Captured,2026-10-27T20:59:00Z,,scrot,screenshots/tools.png,Captured tool version output
+Integrity Verification,2026-10-27T20:59:57Z,,diff 9.7 (coreutils),N/A,"diff archive_sha256_baseline.txt archive_sha256_post.txt -> HASHES MATCH"
+Environment Recorded,2026-10-27T20:59:57Z,,uname 6.16.8+kali-amd64,N/A,"Kali GNU/Linux Rolling; unzip 6.00; sha256sum 9.7"
+Phase 0 Complete,2026-10-27T20:59:57Z,,N/A,N/A,"Evidence integrity verified; extraction reproducible; ready for analysis"
