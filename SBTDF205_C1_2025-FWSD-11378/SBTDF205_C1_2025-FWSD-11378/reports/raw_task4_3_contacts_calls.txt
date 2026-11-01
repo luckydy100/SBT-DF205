@@ -1,0 +1,262 @@
+=== CAPTURED: 2026-10-29T13:56:53Z ===
+
+=== Files in contacts databases dir ===
+total 784
+drwxrwxr-x 2 kali kali   4096 Feb 15  2020 .
+drwxrwxr-x 5 kali kali   4096 Feb 15  2020 ..
+-rw-rw-r-- 1 kali kali  40960 Feb 14  2020 calllog.db
+-rw-rw-r-- 1 kali kali 376832 Feb 14  2020 contacts2.db
+-rw-rw-r-- 1 kali kali 376832 Feb 14  2020 profile.db
+
+=== Hashes ===
+2a1fee3d9412e2f746592fcc0f7abcdd0ece26bc02c95240fd210464f4625050  working/Pixel 3/data/data/com.android.providers.contacts/databases/contacts2.db
+5979a3fa0b4e70aff6dc20675e84a14fa584e52ad4d224d9da14d8aa0ef809d3  working/Pixel 3/data/data/com.android.providers.contacts/databases/calllog.db
+
+=== contacts2.db — schema of key tables ===
+--- raw_contacts columns ---
+0|_id|INTEGER|0||1
+1|account_id|INTEGER|0||0
+2|sourceid|TEXT|0||0
+3|backup_id|TEXT|0||0
+4|raw_contact_is_read_only|INTEGER|1|0|0
+5|version|INTEGER|1|1|0
+6|dirty|INTEGER|1|0|0
+7|deleted|INTEGER|1|0|0
+8|metadata_dirty|INTEGER|1|0|0
+9|contact_id|INTEGER|0||0
+10|aggregation_mode|INTEGER|1|0|0
+11|aggregation_needed|INTEGER|1|1|0
+12|custom_ringtone|TEXT|0||0
+13|send_to_voicemail|INTEGER|1|0|0
+14|x_times_contacted|INTEGER|1|0|0
+15|x_last_time_contacted|INTEGER|0||0
+16|times_contacted|INTEGER|1|0|0
+17|last_time_contacted|INTEGER|0||0
+18|starred|INTEGER|1|0|0
+19|pinned|INTEGER|1|0|0
+20|display_name|TEXT|0||0
+21|display_name_alt|TEXT|0||0
+22|display_name_source|INTEGER|1|0|0
+23|phonetic_name|TEXT|0||0
+24|phonetic_name_style|TEXT|0||0
+25|sort_key|TEXT|0||0
+26|phonebook_label|TEXT|0||0
+27|phonebook_bucket|INTEGER|0||0
+28|sort_key_alt|TEXT|0||0
+29|phonebook_label_alt|TEXT|0||0
+30|phonebook_bucket_alt|INTEGER|0||0
+31|name_verified|INTEGER|1|0|0
+32|sync1|TEXT|0||0
+33|sync2|TEXT|0||0
+34|sync3|TEXT|0||0
+35|sync4|TEXT|0||0
+--- data columns ---
+0|_id|INTEGER|0||1
+1|package_id|INTEGER|0||0
+2|mimetype_id|INTEGER|1||0
+3|raw_contact_id|INTEGER|1||0
+4|hash_id|TEXT|0||0
+5|is_read_only|INTEGER|1|0|0
+6|is_primary|INTEGER|1|0|0
+7|is_super_primary|INTEGER|1|0|0
+8|data_version|INTEGER|1|0|0
+9|data1|TEXT|0||0
+10|data2|TEXT|0||0
+11|data3|TEXT|0||0
+12|data4|TEXT|0||0
+13|data5|TEXT|0||0
+14|data6|TEXT|0||0
+15|data7|TEXT|0||0
+16|data8|TEXT|0||0
+17|data9|TEXT|0||0
+18|data10|TEXT|0||0
+19|data11|TEXT|0||0
+20|data12|TEXT|0||0
+21|data13|TEXT|0||0
+22|data14|TEXT|0||0
+23|data15|TEXT|0||0
+24|data_sync1|TEXT|0||0
+25|data_sync2|TEXT|0||0
+26|data_sync3|TEXT|0||0
+27|data_sync4|TEXT|0||0
+28|carrier_presence|INTEGER|1|0|0
+29|preferred_phone_account_component_name|TEXT|0||0
+30|preferred_phone_account_id|TEXT|0||0
+
+=== contacts2.db — accounts table (all) ===
+_id  account_name          account_type                   
+---  --------------------  -------------------------------
+1    thisisdfir@gmail.com  com.google                     
+2    858233690             org.telegram.messenger         
+3    thisisdfir            com.silentcircle.account       
+4    Signal                org.thoughtcrime.securesms     
+5    Skype                 com.skype.raider               
+6    +19195794674          com.viber.voip                 
+7    WhatsApp              com.whatsapp                   
+8    Duo                   com.google.android.apps.tachyon
+
+=== contacts2.db — raw_contacts (id, account, display_name, deleted, contact_id) ===
+_id  account_id  display_name  deleted  contact_id
+---  ----------  ------------  -------  ----------
+1    1           Josh Hickman  0        10        
+2    2           Josh Hickman  0        10        
+3    3           Josh Hickman  0        10        
+4    4           Josh Hickman  0        10        
+5    5           Josh Hickman  0        10        
+6    2           Josh Hickman  1                  
+7    2           Josh Hickman  1                  
+8    6           Josh Hickman  0        10        
+9    7           Josh Hickman  0        10        
+10   8           Josh Hickman  0        10        
+
+=== contacts2.db — data rows (contact detail records) ===
+_id  mimetype_id  raw_contact_id  data1                       data2             data3                            
+---  -----------  --------------  --------------------------  ----------------  ---------------------------------
+1    11           1               1                                                                              
+2    7            1               Josh Hickman                Josh              Hickman                          
+3    3            1                                           1                                                  
+4    12           1                                                                                              
+5    5            1               (919) 579-0479              2                                                  
+6    7            2               Josh Hickman                Josh              Hickman                          
+7    17           2               1016803084                  Telegram Profile  +19195790479                     
+8    7            3               Josh Hickman                Josh              Hickman                          
+9    18           3               tel:+1 919-579-0479         Silent Circle     +1 919-579-0479 Silent World call
+10   7            4               Josh Hickman                Josh              Hickman                          
+11   5            4               (919) 579-0479              7                                                  
+12   19           4               (919) 579-0479              Signal            Message (919) 579-0479           
+13   20           4               (919) 579-0479              Signal            Signal Call (919) 579-0479       
+14   7            5               Josh Hickman                Josh              Hickman                          
+15   21           5               9195790479                                    Skype                            
+16   7            6               Josh Hickman                Josh              Hickman                          
+17   5            6               +990841016803084                                                               
+18   11           6               6                                                                              
+19   7            7               Josh Hickman                Josh              Hickman                          
+20   5            7               +990841016803084                                                               
+21   11           7               6                                                                              
+22   7            8               Josh Hickman                Josh              Hickman                          
+23   22           8               +19195790479                Viber             Free call (+19195790479)         
+24   23           8               +19195790479                Viber             Free message (+19195790479)      
+25   24           8               +19195790479                Viber             Viber Out call (+19195790479)    
+26   25           8               +19195790479                                  +19195790479                     
+27   7            9               Josh Hickman                Josh              Hickman                          
+28   26           9               19195790479@s.whatsapp.net  WhatsApp          Message +1 (919) 579-0479        
+29   27           9               19195790479@s.whatsapp.net  WhatsApp          Voice call +1 (919) 579-0479     
+30   28           9               19195790479@s.whatsapp.net  WhatsApp          Video call +1 (919) 579-0479     
+31   5            9               9195790479                  2                                                  
+32   7            10              Josh Hickman                Josh              Hickman                          
+33   5            10              (919) 579-0479              2                                                  
+34   29           10              (919) 579-0479              1                                                  
+35   30           10              (919) 579-0479                                                                 
+
+=== contacts2.db — mimetypes mapping ===
+_id  mimetype                                                           
+---  -------------------------------------------------------------------
+1    vnd.android.cursor.item/email_v2                                   
+2    vnd.android.cursor.item/im                                         
+3    vnd.android.cursor.item/nickname                                   
+4    vnd.android.cursor.item/organization                               
+5    vnd.android.cursor.item/phone_v2                                   
+6    vnd.android.cursor.item/sip_address                                
+7    vnd.android.cursor.item/name                                       
+8    vnd.android.cursor.item/postal-address_v2                          
+9    vnd.android.cursor.item/identity                                   
+10   vnd.android.cursor.item/photo                                      
+11   vnd.android.cursor.item/group_membership                           
+12   vnd.android.cursor.item/note                                       
+13   vnd.android.cursor.item/contact_event                              
+14   vnd.android.cursor.item/website                                    
+15   vnd.android.cursor.item/relation                                   
+16   vnd.com.google.cursor.item/contact_misc                            
+17   vnd.android.cursor.item/vnd.org.telegram.messenger.android.profile 
+18   vnd.android.cursor.item/com.silentcircle.phone                     
+19   vnd.android.cursor.item/vnd.org.thoughtcrime.securesms.contact     
+20   vnd.android.cursor.item/vnd.org.thoughtcrime.securesms.call        
+21   vnd.android.cursor.item/com.skype4life.phone                       
+22   vnd.android.cursor.item/vnd.com.viber.voip.viber_number_call       
+23   vnd.android.cursor.item/vnd.com.viber.voip.viber_number_message    
+24   vnd.android.cursor.item/vnd.com.viber.voip.viber_out_call_viber    
+25   vnd.android.cursor.item/vnd.com.viber.voip.google_voice_message    
+26   vnd.android.cursor.item/vnd.com.whatsapp.profile                   
+27   vnd.android.cursor.item/vnd.com.whatsapp.voip.call                 
+28   vnd.android.cursor.item/vnd.com.whatsapp.video.call                
+29   vnd.android.cursor.item/com.google.android.apps.tachyon.phone      
+30   vnd.android.cursor.item/com.google.android.apps.tachyon.phone.audio
+
+=== calllog.db — tables ===
+android_metadata  calls             properties        voicemail_status
+
+=== calllog.db — calls table schema ===
+0|_id|INTEGER|0||1
+1|number|TEXT|0||0
+2|presentation|INTEGER|1|1|0
+3|post_dial_digits|TEXT|1|''|0
+4|via_number|TEXT|1|''|0
+5|date|INTEGER|0||0
+6|duration|INTEGER|0||0
+7|data_usage|INTEGER|0||0
+8|type|INTEGER|0||0
+9|features|INTEGER|1|0|0
+10|subscription_component_name|TEXT|0||0
+11|subscription_id|TEXT|0||0
+12|phone_account_address|TEXT|0||0
+13|phone_account_hidden|INTEGER|1|0|0
+14|sub_id|INTEGER|0|-1|0
+15|new|INTEGER|0||0
+16|name|TEXT|0||0
+17|numbertype|INTEGER|0||0
+18|numberlabel|TEXT|0||0
+19|countryiso|TEXT|0||0
+20|voicemail_uri|TEXT|0||0
+21|is_read|INTEGER|0||0
+22|geocoded_location|TEXT|0||0
+23|lookup_uri|TEXT|0||0
+24|matched_number|TEXT|0||0
+25|normalized_number|TEXT|0||0
+26|photo_id|INTEGER|1|0|0
+27|photo_uri|TEXT|0||0
+28|formatted_number|TEXT|0||0
+29|add_for_all_users|INTEGER|1|1|0
+30|last_modified|INTEGER|0|0|0
+31|call_screening_component_name|TEXT|0||0
+32|call_screening_app_name|TEXT|0||0
+33|block_reason|INTEGER|1|0|0
+34|_data|TEXT|0||0
+35|has_content|INTEGER|0||0
+36|mime_type|TEXT|0||0
+37|source_data|TEXT|0||0
+38|source_package|TEXT|0||0
+39|transcription|TEXT|0||0
+40|transcription_state|INTEGER|1|0|0
+41|state|INTEGER|0||0
+42|dirty|INTEGER|1|0|0
+43|deleted|INTEGER|1|0|0
+44|backed_up|INTEGER|1|0|0
+45|restored|INTEGER|1|0|0
+46|archived|INTEGER|1|0|0
+47|is_omtp_voicemail|INTEGER|1|0|0
+
+=== calllog.db — all calls (with UTC conversion) ===
+_id  number         utc_time             duration  type  direction  name          geocoded_location  is_read
+---  -------------  -------------------  --------  ----  ---------  ------------  -----------------  -------
+1                   2020-01-31 15:16:36  0         3     MISSED                                      1      
+2                   2020-01-31 18:07:50  0         3     MISSED                                      1      
+3                   2020-01-31 20:21:55  0         3     MISSED                                      1      
+4                   2020-02-01 19:28:00  0         3     MISSED                                      1      
+5                   2020-02-03 19:32:22  0         3     MISSED                                      1      
+6    +332629243087  2020-02-08 20:14:56  0         3     MISSED                                      1      
+7    +19195121037   2020-02-12 15:37:29  0         3     MISSED                   North Carolina     1      
+8    +19195121037   2020-02-12 15:38:21  3         4     VOICEMAIL                North Carolina     1      
+9    +15755863247   2020-02-13 00:52:44  0         3     MISSED                   Questa, NM         1      
+10   +15755863247   2020-02-13 00:53:33  3         4     VOICEMAIL                Questa, NM         1      
+11   9195790479     2020-02-14 01:29:01  11        2     OUTGOING   Josh Hickman  North Carolina            
+12   +19195790479   2020-02-14 01:30:24  65        1     INCOMING   Josh Hickman  North Carolina            
+13   9195790479     2020-02-14 13:05:57  86        2     OUTGOING   Josh Hickman  North Carolina            
+14   9195790479     2020-02-14 14:41:18  91        1     INCOMING   Josh Hickman  North Carolina            
+
+=== calllog.db — call count by type ===
+type  count
+----  -----
+1     2    
+2     2    
+3     8    
+4     2    

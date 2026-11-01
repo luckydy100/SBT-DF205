@@ -1,0 +1,106 @@
+=== CAPTURED: 2026-10-29T14:12:52Z ===
+
+=== bugle_db exists? ===
+-rw-rw-r-- 1 kali kali 425984 Feb 14  2020 working/Pixel 3/data/data/com.google.android.apps.messaging/databases/bugle_db
+ed4f19eb9fb60fea72545006be9cd6b47171cb8822894f7da3276a57ea7e3a33  working/Pixel 3/data/data/com.google.android.apps.messaging/databases/bugle_db
+
+=== bugle_db tables ===
+add_contact_banner                  messages_annotations              
+cms                                 p2p_conversation_suggestion_event 
+cms_notifications                   participants                      
+conversation_frecency_view          parts                             
+conversation_image_parts_view       pending_incoming_message_rcs_table
+conversation_participants           rbm_payment_request_metadata      
+conversation_suggestions            read_reports                      
+conversations                       received_message_phone_numbers    
+desktop                             recent_expressive_stickers        
+disambiguations                     recent_gifs                       
+draft_parts_view                    reminders                         
+etouffee_rcs_metadata               remote_instances                  
+events                              reports_concat_view               
+flagged_messages                    self_participants                 
+generic_worker_queue                user_references                   
+link_preview                        user_refs_concat_view             
+link_preview_participants_table     verified_sms_blacklisted_senders  
+linked_account                      verified_sms_brands               
+message_spam                        verified_sms_senders              
+message_status                      work_queue                        
+messages                          
+
+=== messages table row count ===
+36
+
+=== messages linked to AOSP via sms_message_uri (first 10) ===
+_id  conversation_id  sms_message_uri  received_utc         message_protocol  message_status  seen  read
+---  ---------------  ---------------  -------------------  ----------------  --------------  ----  ----
+1    2                content://sms/2  2020-01-29 18:20:45  0                 100             1     0   
+2    3                content://sms/3  2020-01-29 18:30:46  0                 100             1     0   
+3    3                                 2020-01-29 18:30:46  5                 210             1     1   
+4    4                content://sms/4  2020-01-29 18:31:36  0                 100             1     0   
+5    5                content://sms/5  2020-01-29 18:32:08  0                 100             1     0   
+6    6                content://sms/6  2020-01-29 18:33:40  0                 100             1     0   
+7    7                content://sms/7  2020-01-29 18:35:03  0                 100             1     0   
+8    8                content://sms/8  2020-01-29 18:37:08  0                 100             1     0   
+9    8                                 2020-01-29 18:37:08  5                 210             1     1   
+10   3                content://sms/9  2020-01-29 18:41:38  0                 100             1     0   
+
+=== Match check: AOSP SMS _id=2, 3, 12 (from thread 4, 5, 13) ===
+bugle_id  sms_message_uri   received_utc       
+--------  ----------------  -------------------
+1         content://sms/2   2020-01-29 18:20:45
+2         content://sms/3   2020-01-29 18:30:46
+13        content://sms/12  2020-01-29 18:50:24
+
+=== Cross-check AOSP for the same IDs ===
+aosp_id  address       aosp_utc             body                                                        
+-------  ------------  -------------------  ------------------------------------------------------------
+2        +13233205525  2020-01-29 18:20:45  <#> Please enter 304868 into LINE within the next 30 mins.  
+                                            J                                                           
+
+3        732873        2020-01-29 18:30:46  Telegram code: 59389                                        
+                                                                                                        
+                                            You can also tap on this link to log i                      
+
+12       32665         2020-01-29 18:50:24  Confirmed! To edit SMS preferences go to m.facebook.com/sett
+
+=== bugle_db conversations table ===
+_id  name            latest_message_id  snippet                                                     
+---  --------------  -----------------  ------------------------------------------------------------
+2    (323) 320-5525  1                  <#> Please enter 304868 into LINE within the next 30 mins.  
+                                        J                                                           
+
+3    732873          15                 <#> Your Imgur verification code is 4907230                 
+                                        WXYiuevlJ2b                                                 
+
+4    (843) 751-4985  4                  <#> Your Signal verification code: 303-077                  
+                                                                                                    
+                                        doDiFGKPO1r                                                 
+
+5    (225) 369-0855  5                  ​​Your imo code is 685614                                   
+                                        9K+9OFePKE9                                                 
+
+6    (234) 757-0651  6                  Your Skout verification code is 2661.                       
+
+7    (234) 900-8124  7                  Your Skout verification code is 9073.                       
+
+8    47543           9                  Link previews are on.<br />Learn more or turn off in <u>Sett
+
+9    59109           11                 [#][TikTok] 6327 is your verification code                  
+                                        fJpzQvK2eu1                                                 
+
+10   837402          12                 FB-55286 is ThisIs's Facebook confirmation code             
+
+11   32665           37                 🔔 ThisIs, you have 9 new notifications on Facebook: https://
+
+12   44398           16                 369967 is your verification code for Dust - a safer place to
+
+13   (716) 239-4257  17                 Your Wickr Me confirmation code is 8434776                  
+
+14   (323) 320-8934  19                 Link previews are on.<br />Learn more or turn off in <u>Sett
+
+15   Josh Hickman    38                 That is interesting.                                        
+
+=== bugle_db participants table (first 5) ===
+Error: in prepare, no such column: phone_number
+  SELECT _id, phone_number, display_name, contact_id FROM participants LIMIT 5;
+              ^--- error here

@@ -1,0 +1,34 @@
+=== CAPTURED: 2026-10-29T13:53:06Z ===
+
+=== settings_secure.xml — relevant keys ===
+  <setting id="0" name="mock_location" value="0" package="android" defaultValue="0" defaultSysSet="true" />
+  <setting id="65" name="bluetooth_name" value="Pixel 3" package="android" defaultValue="Pixel 3" defaultSysSet="true" />
+  <setting id="71" name="bluetooth_address" value="7C:D9:5C:AC:A2:CE" package="android" defaultValue="7C:D9:5C:AC:A2:CE" defaultSysSet="true" />
+
+=== settings_global.xml — relevant keys ===
+  <setting id="5497" name="bluetooth_on" value="0" package="android" defaultValue="0" defaultSysSet="true" />
+  <setting id="5816" name="wifi_scan_always_enabled" value="0" package="com.google.android.gms" defaultValue="0" defaultSysSet="true" />
+  <setting id="0" name="airplane_mode_on" value="0" package="android" defaultValue="0" defaultSysSet="true" />
+  <setting id="5822" name="wifi_on" value="1" package="android" defaultValue="1" defaultSysSet="true" />
+
+=== settings_system.xml — relevant keys ===
+  <setting id="32" name="system_locales" value="en-US" package="android" defaultValue="en-US" defaultSysSet="true" />
+
+=== WifiConfigStore.xml (full) ===
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<WifiConfigStoreData>
+<int name="Version" value="2" />
+<Integrity>
+<byte-array name="EncryptedData" num="48">e71394aa95f2d767a1c46e787ca99c0478e12467241553a8551005969fd38294e8a4082529d69a15d5bc49f28ca21a54</byte-array>
+<byte-array name="IV" num="12">18234dad790da5cb3ba8eceb</byte-array>
+</Integrity>
+<NetworkList />
+<MacAddressMap>
+<map name="MacMapEntry">
+<string name="&quot;CcookiesDcastleR5&quot;WPA_PSK">ae:f6:c7:a8:a5:c2</string>
+</map>
+</MacAddressMap>
+<PasspointConfigData>
+<long name="ProviderIndex" value="0" />
+</PasspointConfigData>
+</WifiConfigStoreData>

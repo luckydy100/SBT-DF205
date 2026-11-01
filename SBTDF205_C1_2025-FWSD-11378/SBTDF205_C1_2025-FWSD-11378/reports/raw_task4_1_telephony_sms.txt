@@ -1,0 +1,133 @@
+=== CAPTURED: 2026-10-29T13:53:55Z ===
+
+=== SMS table schema ===
+CREATE TABLE sms (_id INTEGER PRIMARY KEY,thread_id INTEGER,address TEXT,person INTEGER,date INTEGER,date_sent INTEGER DEFAULT 0,protocol INTEGER,read INTEGER DEFAULT 0,status INTEGER DEFAULT -1,type INTEGER,reply_path_present INTEGER,subject TEXT,body TEXT,service_center TEXT,locked INTEGER DEFAULT 0,sub_id INTEGER DEFAULT -1, error_code INTEGER DEFAULT 0,creator TEXT,seen INTEGER DEFAULT 0);
+CREATE TRIGGER sms_update_thread_on_insert AFTER INSERT ON sms BEGIN  UPDATE threads SET    date = (strftime('%s','now') * 1000),     snippet = new.body,     snippet_cs = 0  WHERE threads._id = new.thread_id;   UPDATE threads SET message_count =      (SELECT COUNT(sms._id) FROM sms LEFT JOIN threads       ON threads._id = thread_id      WHERE thread_id = new.thread_id        AND sms.type != 3) +      (SELECT COUNT(pdu._id) FROM pdu LEFT JOIN threads       ON threads._id = thread_id      WHERE thread_id = new.thread_id        AND (m_type=132 OR m_type=130 OR m_type=128)        AND msg_box != 3)   WHERE threads._id = new.thread_id;   UPDATE threads SET read =     CASE (SELECT COUNT(*)          FROM sms          WHERE read = 0            AND thread_id = threads._id)      WHEN 0 THEN 1      ELSE 0    END  WHERE threads._id = new.thread_id; END;
+CREATE TRIGGER sms_update_thread_date_subject_on_update AFTER  UPDATE OF date, body, type  ON sms BEGIN  UPDATE threads SET    date = (strftime('%s','now') * 1000),     snippet = new.body,     snippet_cs = 0  WHERE threads._id = new.thread_id;   UPDATE threads SET message_count =      (SELECT COUNT(sms._id) FROM sms LEFT JOIN threads       ON threads._id = thread_id      WHERE thread_id = new.thread_id        AND sms.type != 3) +      (SELECT COUNT(pdu._id) FROM pdu LEFT JOIN threads       ON threads._id = thread_id      WHERE thread_id = new.thread_id        AND (m_type=132 OR m_type=130 OR m_type=128)        AND msg_box != 3)   WHERE threads._id = new.thread_id;   UPDATE threads SET read =     CASE (SELECT COUNT(*)          FROM sms          WHERE read = 0            AND thread_id = threads._id)      WHEN 0 THEN 1      ELSE 0    END  WHERE threads._id = new.thread_id; END;
+CREATE TRIGGER sms_update_thread_read_on_update AFTER  UPDATE OF read  ON sms BEGIN   UPDATE threads SET read =     CASE (SELECT COUNT(*)          FROM sms          WHERE read = 0            AND thread_id = threads._id)      WHEN 0 THEN 1      ELSE 0    END  WHERE threads._id = new.thread_id; END;
+CREATE TRIGGER update_threads_error_on_update_sms   AFTER UPDATE OF type ON sms  WHEN (OLD.type != 5 AND NEW.type = 5)    OR (OLD.type = 5 AND NEW.type != 5) BEGIN   UPDATE threads SET error =     CASE      WHEN NEW.type = 5 THEN error + 1      ELSE error - 1    END   WHERE _id = NEW.thread_id; END;
+CREATE TRIGGER sms_words_update AFTER UPDATE ON sms BEGIN UPDATE words  SET index_text = NEW.body WHERE (source_id=NEW._id AND table_to_use=1);  END;
+CREATE TRIGGER sms_words_delete AFTER DELETE ON sms BEGIN DELETE FROM   words WHERE source_id = OLD._id AND table_to_use = 1; END;
+CREATE INDEX typeThreadIdIndex ON sms (type, thread_id);
+CREATE INDEX threadIdDateIndex ON sms (thread_id, date);
+
+=== SMS distribution by type ===
+type  direction         count
+----  ----------------  -----
+1     INBOX (received)  22   
+2     SENT              2    
+
+=== SMS read/unread distribution ===
+read  state   count
+----  ------  -----
+0     UNREAD  20   
+1     READ    4    
+
+=== THREADS table (all 17) ===
+_id  date           message_count  recipient_ids  snippet                                             read  has_attachment
+---  -------------  -------------  -------------  --------------------------------------------------  ----  --------------
+4    1580322045000  1              4              <#> Please enter 304868 into LINE within the next   0     0             
+
+5    1580328970000  3              5              <#> Your Imgur verification code is 4907230         0     0             
+                                                  WXYiue                                                                  
+
+6    1580322697000  1              6              <#> Your Signal verification code: 303-077          0     0             
+                                                                                                                          
+                                                  doDiFG                                                                  
+
+7    1580322728000  1              7              ​​Your imo code is 685614                           0     0             
+                                                  9K+9OFePKE9                                                             
+
+8    1580322820000  1              8              Your Skout verification code is 2661.               0     0             
+
+9    1580322903000  1              9              Your Skout verification code is 9073.               0     0             
+
+10   1580323029000  1              10             <#> Your WhatsApp code: 362-593                     0     0             
+                                                                                                                          
+                                                  You can also tap                                                        
+
+11   1580323388000  1              11             [#][TikTok] 6327 is your verification code          0     0             
+                                                  fJpzQvK                                                                 
+
+12   1580323814000  1              12             FB-55286 is ThisIs's Facebook confirmation code     0     0             
+
+13   1581628344000  8              13             🔔 ThisIs, you have 9 new notifications on Facebook  0     0             
+
+14   1580332533000  1              14             369967 is your verification code for Dust - a safe  0     0             
+
+15   1580518803000  1              15             Your Wickr Me confirmation code is 8434776          1     0             
+
+16   1580519053000  1              16             Your Wire code is 172488.                           1     0             
+                                                                                                                          
+                                                  Open https://account.wi                                                 
+
+17   1581685808000  9              17                                                                 1     0             
+
+18   1581692447000  0              18                                                                 1     0             
+
+19   1581692447000  0              19                                                                 1     0             
+
+20   1581692453000  0              20                                                                 1     0             
+
+=== Thread 13 — 8 messages, Facebook notifications (all received, from 32665) ===
+_id  address  utc_time             type  read  body                                                                                                
+---  -------  -------------------  ----  ----  ----------------------------------------------------------------------------------------------------
+12   32665    2020-01-29 18:50:24  1     0     Confirmed! To edit SMS preferences go to m.facebook.com/settings. To turn off SMS for your Facebook 
+17   32665    2020-02-03 19:18:46  1     0     👤 Xavier Mccollum is a new Facebook friend suggestion: https://fb.com/l/9OSKBTdMAcfo8C              
+18   32665    2020-02-05 16:22:21  1     0     🔔 ThisIs, you have 1 new notification on Facebook: https://fb.com/l/a5ANAeaZdoseLW                  
+19   32665    2020-02-07 08:15:59  1     0     🔔 ThisIs, you have 1 new notification on Facebook: https://fb.com/l/1KFllApNpuN8igJ                 
+20   32665    2020-02-08 18:17:01  1     0     🔔 ThisIs, you have 1 new notification on Facebook: https://fb.com/l/aym2DdgkRIfkix                  
+22   32665    2020-02-11 18:02:40  1     0     🔔 ThisIs, you have 6 new notifications on Facebook: https://fb.com/l/1IOHQ5bDdc60Nl9                
+23   32665    2020-02-12 19:12:18  1     0     🔔 ThisIs, you have 9 new notifications on Facebook: https://fb.com/l/akGyU7KWPrdRmS                 
+24   32665    2020-02-13 21:12:24  1     0     🔔 ThisIs, you have 9 new notifications on Facebook: https://fb.com/l/1KypwvpROvYfv7n                
+
+=== Thread 17 — 2 messages, real conversation ===
+_id  address       utc_time             type  read  body                                                    
+---  ------------  -------------------  ----  ----  --------------------------------------------------------
+21   9195790479    2020-02-09 18:41:42  2     1     I am on my way to the coffee shop. Do you want anything?
+25   919-579-0479  2020-02-14 13:09:03  2     1     Wow, the messages sync over between accounts.           
+
+=== Thread 5 — 3 messages, 2FA codes ===
+_id  address  utc_time             type  read  body                                       
+---  -------  -------------------  ----  ----  -------------------------------------------
+3    732873   2020-01-29 18:30:46  1     0     Telegram code: 59389                       
+                                                                                          
+                                               You can also tap on this link to log in:   
+                                               https://t.me/logi                          
+
+9    732873   2020-01-29 18:41:38  1     0     Use 3649 as Microsoft account security code
+
+13   732873   2020-01-29 20:16:10  1     0     <#> Your Imgur verification code is 4907230
+                                               WXYiuevlJ2b                                
+
+=== Thread 4 — 1 message, first SMS in DB ===
+_id  address       utc_time             type  read  body                                                        service_center  creator                          
+---  ------------  -------------------  ----  ----  ----------------------------------------------------------  --------------  ---------------------------------
+2    +13233205525  2020-01-29 18:20:45  1     0     <#> Please enter 304868 into LINE within the next 30 mins.  6502531234      com.google.android.apps.messaging
+                                                    JFoQLtyexga                                                                                                  
+
+=== Verify timestamp convention: _id=2 should equal 2020-01-29 18:20:45 UTC ===
+_id  raw_ms         utc                
+---  -------------  -------------------
+2    1580322045251  2020-01-29 18:20:45
+
+=== canonical_addresses lookup ===
+_id  address         
+---  ----------------
+4    +13233205525    
+5    732873          
+6    +18437514985    
+7    +12253690855    
+8    +12347570651    
+9    +12349008124    
+10   47543           
+11   59109           
+12   837402          
+13   32665           
+14   44398           
+15   +17162394257    
+16   +13233208934    
+17   +19195790479    
+18   ʼWAP_PUSH_SI!ʼ  
+19   Service messages
+20   22000           

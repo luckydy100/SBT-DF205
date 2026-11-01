@@ -1,0 +1,38 @@
+=== CAPTURED: 2026-10-29T14:11:38Z ===
+
+=== calendar.db exists? ===
+-rw-rw-r-- 1 kali kali 122880 Feb 14  2020 working/Pixel 3/data/data/com.android.providers.calendar/databases/calendar.db
+
+=== Hash ===
+82a580901fca7580dd8841a1c988dcaa65afef068f386d603aeec6039e5aca3c  working/Pixel 3/data/data/com.android.providers.calendar/databases/calendar.db
+
+=== Tables in calendar.db ===
+Attendees             Colors                Reminders           
+CalendarAlerts        Events                _sync_state         
+CalendarCache         EventsRawTimes        _sync_state_metadata
+CalendarMetaData      ExtendedProperties    android_metadata    
+Calendars             Instances             view_events         
+
+=== Row counts per table ===
+Calendars: 1
+Events: 0
+Attendees: 0
+Reminders: 0
+CalendarAlerts: 0
+Colors: 35
+ExtendedProperties: 0
+CalendarCache: 4
+CalendarMetaData: 1
+EventsRawTimes: 0
+Instances: 0
+
+=== Events table schema ===
+CREATE TABLE Events (_id INTEGER PRIMARY KEY AUTOINCREMENT,_sync_id TEXT,dirty INTEGER,mutators TEXT,lastSynced INTEGER DEFAULT 0,calendar_id INTEGER NOT NULL,title TEXT,eventLocation TEXT,description TEXT,eventColor INTEGER,eventColor_index TEXT,eventStatus INTEGER,selfAttendeeStatus INTEGER NOT NULL DEFAULT 0,dtstart INTEGER,dtend INTEGER,eventTimezone TEXT,duration TEXT,allDay INTEGER NOT NULL DEFAULT 0,accessLevel INTEGER NOT NULL DEFAULT 0,availability INTEGER NOT NULL DEFAULT 0,hasAlarm INTEGER NOT NULL DEFAULT 0,hasExtendedProperties INTEGER NOT NULL DEFAULT 0,rrule TEXT,rdate TEXT,exrule TEXT,exdate TEXT,original_id INTEGER,original_sync_id TEXT,originalInstanceTime INTEGER,originalAllDay INTEGER,lastDate INTEGER,hasAttendeeData INTEGER NOT NULL DEFAULT 0,guestsCanModify INTEGER NOT NULL DEFAULT 0,guestsCanInviteOthers INTEGER NOT NULL DEFAULT 1,guestsCanSeeGuests INTEGER NOT NULL DEFAULT 1,organizer STRING,isOrganizer INTEGER,deleted INTEGER NOT NULL DEFAULT 0,eventEndTimezone TEXT,customAppPackage TEXT,customAppUri TEXT,uid2445 TEXT,sync_data1 TEXT,sync_data2 TEXT,sync_data3 TEXT,sync_data4 TEXT,sync_data5 TEXT,sync_data6 TEXT,sync_data7 TEXT,sync_data8 TEXT,sync_data9 TEXT,sync_data10 TEXT);
+CREATE INDEX eventsCalendarIdIndex ON Events (calendar_id);
+CREATE TRIGGER events_cleanup_delete DELETE ON Events BEGIN DELETE FROM Instances WHERE event_id=old._id;DELETE FROM EventsRawTimes WHERE event_id=old._id;DELETE FROM Attendees WHERE event_id=old._id;DELETE FROM Reminders WHERE event_id=old._id;DELETE FROM CalendarAlerts WHERE event_id=old._id;DELETE FROM ExtendedProperties WHERE event_id=old._id;END;
+CREATE TRIGGER event_color_update UPDATE OF eventColor_index ON Events WHEN new.eventColor_index NOT NULL BEGIN UPDATE Events SET eventColor=(SELECT color FROM Colors WHERE account_name=(SELECT account_name FROM Calendars WHERE _id=new.calendar_id) AND account_type=(SELECT account_type FROM Calendars WHERE _id=new.calendar_id) AND color_index=new.eventColor_index AND color_type=1)  WHERE _id=old._id; END;
+CREATE TRIGGER original_sync_update UPDATE OF _sync_id ON Events BEGIN UPDATE Events SET original_sync_id=new._sync_id WHERE original_id=old._id; END;
+
+=== Attendees table schema ===
+CREATE TABLE Attendees (_id INTEGER PRIMARY KEY,event_id INTEGER,attendeeName TEXT,attendeeEmail TEXT,attendeeStatus INTEGER,attendeeRelationship INTEGER,attendeeType INTEGER,attendeeIdentity TEXT,attendeeIdNamespace TEXT);
+CREATE INDEX attendeesEventIdIndex ON Attendees (event_id);

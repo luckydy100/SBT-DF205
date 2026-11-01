@@ -1,0 +1,100 @@
+=== CAPTURED: 2026-10-29T14:13:07Z ===
+
+=== annotated_call_log.db exists? ===
+-rw-rw-r-- 1 kali kali 24576 Feb 14  2020 working/Pixel 3/data/data/com.google.android.dialer/databases/annotated_call_log.db
+e7b896b11cdc375b938fba749ab9d2fab1aeec408a88c2b0ff50cb6f6a417e59  working/Pixel 3/data/data/com.google.android.dialer/databases/annotated_call_log.db
+
+=== AnnotatedCallLog row count ===
+12
+
+=== AnnotatedCallLog (all) ===
+_id  number         utc_time             duration  call_type  is_read  new  spam_status
+---  -------------  -------------------  --------  ---------  -------  ---  -----------
+1                   2020-01-31 15:16:36  0         3          1        0               
+
+2                   2020-01-31 18:07:50  0         3          1        0               
+
+3                   2020-01-31 20:21:55  0         3          1        0               
+
+4                   2020-02-01 19:28:00  0         3          1        0               
+
+5                   2020-02-03 19:32:22  0         3          1        0               
+
+6                   2020-02-08 20:14:56  0         3          1        0               
+                                                                            ±æ√≥Ç.         
+     +332629243087                                                                     
+                                                                                       
+     US                                                                                
+                                                                                       
+
+7                   2020-02-12 15:37:29  0         3          1        0               
+                                                                            ”ú±–É.        
+     +19195121037                                                                      
+                                                                                       
+     US                                                                                
+                                                                                       
+
+9                   2020-02-13 00:52:44  0         3          1        0               
+                                                                            ‡∆¢‡É.       
+     +15755863247                                                                      
+                                                                                       
+     US                                                                                
+                                                                                       
+
+11                  2020-02-14 01:29:01  11        2          0        1               
+                                                                                       
+     +19195790479                                                                      
+                                                                                       
+     US                                                                                
+                                                                                       
+
+12                  2020-02-14 01:30:24  65        1          0        1               
+                                                                                       
+     +19195790479                                                                      
+                                                                                       
+     US                                                                                
+                                                                                       
+
+13                  2020-02-14 13:05:57  86        2          0        1               
+                                                                                       
+     +19195790479                                                                      
+                                                                                       
+     US                                                                                
+                                                                                       
+
+14                  2020-02-14 14:41:18  91        1          0        1               
+                                                                                       
+     +19195790479                                                                      
+                                                                                       
+     US                                                                                
+                                                                                       
+
+=== Compare with AOSP calllog.db (same calls) ===
+aosp_id  number        aosp_utc             duration  type
+-------  ------------  -------------------  --------  ----
+7        +19195121037  2020-02-12 15:37:29  0         3   
+8        +19195121037  2020-02-12 15:38:21  3         4   
+13       9195790479    2020-02-14 13:05:57  86        2   
+
+=== All database files in dialer package ===
+total 8172
+drwxrwxr-x 2 kali kali    4096 Feb 15  2020 .
+drwxrwxr-x 7 kali kali    4096 Feb 15  2020 ..
+-rw-rw-r-- 1 kali kali   24576 Feb 14  2020 annotated_call_log.db
+-rw-rw-r-- 1 kali kali    4096 Feb  9  2020 callscreen_transcripts
+-rw-rw-r-- 1 kali kali   32768 Feb 13  2020 callscreen_transcripts-shm
+-rw-rw-r-- 1 kali kali   37112 Feb  9  2020 callscreen_transcripts-wal
+-rw-rw-r-- 1 kali kali   16384 Jan 31  2020 CPSpeedDialEntry
+-rw-rw-r-- 1 kali kali   77824 Feb 13  2020 dialer.db
+-rw-rw-r-- 1 kali kali   94208 Feb 14  2020 growthkit.db
+-rw-rw-r-- 1 kali kali 7348224 Feb 14  2020 normalized_spam.db
+-rw-rw-r-- 1 kali kali   24576 Feb 13  2020 phone_lookup_history.db
+-rw-rw-r-- 1 kali kali   16384 Feb  9  2020 rtt_transcript.db
+-rw-rw-r-- 1 kali kali    4096 Jan 31  2020 spam_call_database
+-rw-rw-r-- 1 kali kali   32768 Feb 14  2020 spam_call_database-shm
+-rw-rw-r-- 1 kali kali   74192 Feb 12  2020 spam_call_database-wal
+-rw-rw-r-- 1 kali kali   24576 Feb 12  2020 suggest_contact_database
+-rw-rw-r-- 1 kali kali   32768 Feb 13  2020 suggest_contact_database-shm
+-rw-rw-r-- 1 kali kali  416152 Feb 13  2020 suggest_contact_database-wal
+-rw-rw-r-- 1 kali kali   65536 Jan 29  2020 superpacks.db
+-rw-rw-r-- 1 kali kali   24576 Jan 29  2020 voicemail.db

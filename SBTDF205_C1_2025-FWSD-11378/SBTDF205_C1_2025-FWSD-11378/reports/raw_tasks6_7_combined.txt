@@ -1,0 +1,248 @@
+=== CAPTURED: 2026-10-29T14:15:08Z ===
+
+════════════════════════════════════
+═══ TASK 6a — WHATSAPP ═══
+════════════════════════════════════
+
+=== WhatsApp databases ===
+total 3456
+drwxrwxr-x 2 kali kali   4096 Feb 15  2020 .
+drwxrwxr-x 7 kali kali   4096 Feb 15  2020 ..
+-rw-rw-r-- 1 kali kali 233472 Jan 30  2020 axolotl.db
+-rw-rw-r-- 1 kali kali  32768 Feb 14  2020 axolotl.db-shm
+-rw-rw-r-- 1 kali kali 432632 Feb  9  2020 axolotl.db-wal
+-rw-rw-r-- 1 kali kali  24576 Jan 29  2020 chatsettings.db
+-rw-rw-r-- 1 kali kali  24576 Feb  8  2020 companion_devices.db
+-rw-rw-r-- 1 kali kali 425984 Feb  9  2020 emojidictionary.db
+-rw-rw-r-- 1 kali kali  24576 Jan 30  2020 hsmpacks.db
+-rw-rw-r-- 1 kali kali  16384 Feb  9  2020 _jobqueue-WhatsAppJobManager
+-rw-rw-r-- 1 kali kali   4096 Jan 29  2020 location.db
+-rw-rw-r-- 1 kali kali  32768 Feb 14  2020 location.db-shm
+-rw-rw-r-- 1 kali kali 123632 Feb  9  2020 location.db-wal
+-rw-rw-r-- 1 kali kali   4096 Jan 29  2020 media.db
+-rw-rw-r-- 1 kali kali  32768 Feb 13  2020 media.db-shm
+-rw-rw-r-- 1 kali kali 164832 Feb  8  2020 media.db-wal
+-rw-rw-r-- 1 kali kali 823296 Feb 14  2020 msgstore.db
+-rw-rw-r-- 1 kali kali  32768 Feb 14  2020 msgstore.db-shm
+-rw-rw-r-- 1 kali kali 449112 Feb 14  2020 msgstore.db-wal
+-rw-rw-r-- 1 kali kali   4096 Jan 29  2020 payments.db
+-rw-rw-r-- 1 kali kali  32768 Jan 29  2020 payments.db-shm
+-rw-rw-r-- 1 kali kali  82432 Jan 29  2020 payments.db-wal
+-rw-rw-r-- 1 kali kali  32768 Feb  8  2020 statusranking.db
+-rw-rw-r-- 1 kali kali 118784 Feb  9  2020 stickers.db
+-rw-rw-r-- 1 kali kali   4096 Jan 29  2020 wa.db
+-rw-rw-r-- 1 kali kali  32768 Feb 14  2020 wa.db-shm
+-rw-rw-r-- 1 kali kali 325512 Feb 14  2020 wa.db-wal
+
+=== Hashes ===
+9e133d7262f526b1dab7313f636a1a3f32984d8008310a1a699c83496dd13105  working/Pixel 3/data/data/com.whatsapp/databases/msgstore.db
+0a8ffb6b327963558716e87db8946016d143e39f895fa1b43e95ba7032ce2514  working/Pixel 3/data/data/com.whatsapp/databases/wa.db
+
+=== WhatsApp account phone (registerPhone.xml) ===
+    <int name="com.whatsapp.registration.RegisterPhone.country_code_position" value="-1" />
+    <int name="com.whatsapp.registration.RegisterPhone.phone_number_position" value="10" />
+    <string name="com.whatsapp.registration.RegisterPhone.input_country_code">1</string>
+    <string name="com.whatsapp.registration.RegisterPhone.country_code">1</string>
+    <string name="com.whatsapp.registration.RegisterPhone.phone_number">9195794674</string>
+    <int name="com.whatsapp.registration.RegisterPhone.verification_state" value="0" />
+    <string name="com.whatsapp.registration.RegisterPhone.input_phone_number">(919) 579-4674</string>
+
+=== WhatsApp preferences — key entries ===
+    <float name="share_location_lon" value="-78.861786" />
+    <float name="share_location_lat" value="35.65854" />
+    <float name="share_location_zoom" value="12.513967" />
+
+=== msgstore.db tables ===
+away_messages
+away_messages_exemptions
+chat
+chat_list
+chat_view
+deleted_chat_job
+deleted_messages_ids_view
+deleted_messages_view
+jid
+labeled_jid
+labeled_jids
+labeled_messages
+labeled_messages_fts
+labeled_messages_fts_content
+labeled_messages_fts_segdir
+labeled_messages_fts_segments
+legacy_available_messages_view
+media_hash_thumbnail
+media_refs
+message_media
+
+=== msgstore.db — row counts (key tables) ===
+messages: 19
+chat: 3
+jid: 5
+message_text: 0
+message_media: 8
+call_log: 2
+
+=== msgstore.db — messages (first 10) ===
+Error: in prepare, no such column: chat_row_id
+  SELECT _id, chat_row_id, from_me, datetime(timestamp/1000, 'unixepoch') AS utc
+              ^--- error here
+
+=== wa.db — wa_contacts (first 10) ===
+_id  jid                         is_whatsapp_user  number      display_name  status                         
+---  --------------------------  ----------------  ----------  ------------  -------------------------------
+1    status@broadcast            1                                                                          
+2    16505434800@s.whatsapp.net  1                                           Hey there! I am using WhatsApp.
+3    19195790479@s.whatsapp.net  1                 9195790479  Josh Hickman  Hey there! I am using WhatsApp.
+
+════════════════════════════════════
+═══ TASK 6b — TEXTNOW ═══
+════════════════════════════════════
+
+=== TextNow databases ===
+total 5244
+drwxrwxr-x 2 kali kali    4096 Feb 15  2020 .
+drwxrwxr-x 9 kali kali    4096 Feb 15  2020 ..
+-rw-rw-r-- 1 kali kali   28672 Feb  8  2020 ads.db
+-rw-rw-r-- 1 kali kali  172032 Feb 14  2020 androidx.work.workdb
+-rw-rw-r-- 1 kali kali   32768 Feb 14  2020 androidx.work.workdb-shm
+-rw-rw-r-- 1 kali kali  440872 Feb 14  2020 androidx.work.workdb-wal
+-rw-rw-r-- 1 kali kali   73728 Feb  9  2020 com_textnow_android_events_TNEventStreaming_buffer_db
+-rw-rw-r-- 1 kali kali   32768 Feb  9  2020 com_textnow_android_events_TNEventStreaming_buffer_db-shm
+-rw-rw-r-- 1 kali kali  416152 Feb  9  2020 com_textnow_android_events_TNEventStreaming_buffer_db-wal
+-rw-rw-r-- 1 kali kali 3936256 Feb 14  2020 EmogiSDK.db
+-rw-rw-r-- 1 kali kali   16384 Feb 13  2020 google_app_measurement_local.db
+-rw-rw-r-- 1 kali kali   36864 Feb 14  2020 __leanplum.db
+-rw-rw-r-- 1 kali kali   16384 Feb  8  2020 supersonic_sdk.db
+-rw-rw-r-- 1 kali kali  155648 Feb 13  2020 textnow_data.db
+3ceb390eb1a197c38c1f44772bbce80652731319da109bc6f6b3aeddc75edc86  working/Pixel 3/data/data/com.enflick.android.TextNow/databases/textnow_data.db
+
+=== TextNow user info (key prefs) ===
+    <string name="LAST_CALL_UUID">ad215984-b355-4629-b2e8-0773ab0a098a</string>
+    <string name="userinfo_phone">9842352054</string>
+    <long name="LAST_CALL_TIME" value="1581192458738" />
+    <string name="userinfo_username">thisisdfir</string>
+    <string name="userinfo_email">thisisdfir@gmail.com</string>
+    <string name="userinfo_firstname">This Is</string>
+    <string name="LAST_CALL_DESTINATION">+19842032223</string>
+    <string name="userinfo_lastname">DFIR</string>
+    <boolean name="userinfo_email_verified" value="true" />
+
+=== textnow_data.db — contacts (all) ===
+_id  global_id            contact_value        contact_name  contact_type  avatar_initials  avatar_color
+---  -------------------  -------------------  ------------  ------------  ---------------  ------------
+29   4035506878854889617  +19193641420         919-364-1420  2                              #37A182     
+30   4035506878854959991  +19843552094                       2                              #EFB555     
+31   4035506878859699014  +19102697333         Josh Hickman  2             JH               #EFB555     
+32   4035506878879561818  support@enflick.com                3                              #9CD4DB     
+33   4035506878901320701  thisisdfir                         1                              #37A182     
+34   4035506878908139261  +19034748832                       2                              #D0945A     
+35   4035506878908139324  +19842651120                       2                              #9C76C0     
+36   4035506878924732098  +132099                            2                              #4974BD     
+37   4035506879003417100  +19195042998         919-504-2998  2                              #37A182     
+38   4035506879003419842  +19195044885                       2                              #EFB555     
+
+=== textnow_data.db — messages (all) ===
+_id  contact_value  contact_name      message_direction  message_type  utc                  text                                                                            
+---  -------------  ----------------  -----------------  ------------  -------------------  --------------------------------------------------------------------------------
+16   +19842032223   +1(984) 203-2223  1                  1             2020-02-08 20:00:46  Hi there!                                                                       
+18   +19842032223   +1(984) 203-2223  2                  1             2020-02-08 20:01:27  Back at it again, I see.                                                        
+19   +19842032223   +1(984) 203-2223  1                  1             2020-02-08 20:03:06  Yep!  Have to keep generating data.                                             
+20   +19842032223   +1(984) 203-2223  2                  102           2020-02-08 20:05:41  0                                                                               
+21   +19842032223                     2                  201           2020-02-08 20:05:41                                                                                  
+23   +19842032223   +1(984) 203-2223  1                  1             2020-02-08 20:08:22  Missed call from +19842032223                                                   
+24   +19842032223   +1(984) 203-2223  1                  2             2020-02-08 20:09:16  https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZS
+22   +19842032223   +1(984) 203-2223  2                  2             2020-02-08 20:10:25  https://media.textnow.com/?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZS
+25   +19842032223   +1(984) 203-2223  1                  1             2020-02-08 20:11:10  I wonder why I can't call you or send you pictures.                             
+
+════════════════════════════════════
+═══ TASK 7a — GOOGLE MAPS ═══
+════════════════════════════════════
+
+=== Maps databases ===
+total 256
+drwxrwxr-x  2 kali kali  4096 Feb 15  2020 .
+drwxrwxr-x 10 kali kali  4096 Feb 15  2020 ..
+-rw-rw-r--  1 kali kali 40960 Feb  9  2020 gmm_myplaces.db
+-rw-rw-r--  1 kali kali 94208 Feb 14  2020 gmm_storage.db
+-rw-rw-r--  1 kali kali 45056 Feb  9  2020 gmm_sync.db
+-rw-rw-r--  1 kali kali 20480 Jan 30  2020 inbox_notifications.db
+-rw-rw-r--  1 kali kali 24576 Feb  9  2020 ue3.db
+-rw-rw-r--  1 kali kali 28672 Jan 29  2020 ugc_photos_location_data.db
+
+=== gmm_myplaces.db tables and content ===
+android_metadata  sync_corpus       sync_item       
+name            
+----------------
+android_metadata
+sync_item       
+sync_corpus     
+
+=== gmm_storage.db — gmm_storage_table content ===
+_key_pri                       _key_sec  data_size
+-----------------------------  --------  ---------
+uri                            0         57582    
+uri                            1         212      
+CompletedNavigation            0         11623    
+CommuteSetupNotificationModel  1         37       
+
+=== gmm_sync.db — sync_item_data (all) ===
+corpus  client_id                      server_id        timestamp      latitude_e6  longitude_e6
+------  -----------------------------  ---------------  -------------  -----------  ------------
+11      4:0                            4:0              0              35659596     -78872848   
+11      5:0                            5:0              0              40784374     -74065536   
+13      1581273852322_175453746935554                   0              0            0           
+13      1581273852322_175453747018211                   0              0            0           
+13      1581273852322_175453747040450                   0              0            0           
+6       User Parameters                User Parameters  0              0            0           
+11      1:0                            1:0              1554407343604  35734602     -78636654   
+
+════════════════════════════════════
+═══ TASK 7b — GOOGLE PHOTOS ═══
+════════════════════════════════════
+
+=== Photos databases ===
+total 5828
+drwxrwxr-x 2 kali kali    4096 Feb 15  2020 .
+drwxrwxr-x 9 kali kali    4096 Feb 15  2020 ..
+-rw-rw-r-- 1 kali kali  172032 Feb 13  2020 disk_cache
+-rw-rw-r-- 1 kali kali   32768 Feb 13  2020 disk_cache-shm
+-rw-rw-r-- 1 kali kali  469712 Feb 13  2020 disk_cache-wal
+-rw-rw-r-- 1 kali kali   16384 Feb 13  2020 google_app_measurement_local.db
+-rw-rw-r-- 1 kali kali 2191360 Feb 13  2020 gphotos0.db
+-rw-rw-r-- 1 kali kali   32768 Feb 14  2020 gphotos0.db-shm
+-rw-rw-r-- 1 kali kali  524288 Feb 13  2020 gphotos0.db-wal
+-rw-rw-r-- 1 kali kali 1232896 Feb 14  2020 gphotos-1.db
+-rw-rw-r-- 1 kali kali   32768 Feb 14  2020 gphotos-1.db-shm
+-rw-rw-r-- 1 kali kali  519152 Feb 14  2020 gphotos-1.db-wal
+-rw-rw-r-- 1 kali kali   28672 Jan 31  2020 local_trash.db
+-rw-rw-r-- 1 kali kali  176128 Feb 14  2020 media_store_extras
+-rw-rw-r-- 1 kali kali   32768 Feb 14  2020 media_store_extras-shm
+-rw-rw-r-- 1 kali kali  457352 Feb 14  2020 media_store_extras-wal
+-rw-rw-r-- 1 kali kali   36864 Feb 14  2020 NotificationsDB0
+55caad23f7bc42d944a4fb61f0fe83137330f800b00a5538c449de85a8331e20  working/Pixel 3/data/data/com.google.android.apps.photos/databases/gphotos-1.db
+
+=== local_media table (first 10) ===
+Error: in prepare, no such column: is_deleted
+  ) AS capture_utc, latitude, longitude, mime_type, is_deleted, is_favorite FROM
+                                      error here ---^
+
+=== media table (first 10) ===
+_id  dedup_key                    capture_utc          type  is_deleted  is_favorite  has_local
+---  ---------------------------  -------------------  ----  ----------  -----------  ---------
+2    zIHBJyrWiOPqVsJ6rgWYkZLaLTk  2019-09-17 08:26:37  1     0           0            1        
+4    aTYMa3R3LrJqiROSd2SrxOABmSg  2020-01-31 20:43:23  1     0           0            1        
+3    Z3sgmT4tKilIU_80UulWeoLwQ14  2020-01-31 21:15:54  1     0           0            1        
+1    9Zh-FIPHeMpnALlmkb-8elechzc  2020-01-31 21:25:44  1     0           0            1        
+20   0Fz3HOzGVY7I8uacjTjqBLcN_y0  2020-02-01 13:58:14  1     0           0            1        
+19   nr3Y_eoJ5PT26MeECcR7BC5uYC4  2020-02-01 14:07:05  1     0           0            1        
+18   zKJkn9pNgi4zFOOXsSl-xLrorek  2020-02-01 14:10:18  1     0           0            1        
+17   X0CCuNYUMAthZgM9CrdafpgmLmQ  2020-02-01 14:14:29  1     0           0            1        
+16   Wb2jL5wgAXVv-_jp_-iaTBTrohw  2020-02-01 14:15:07  1     0           0            1        
+14   GyveNQa-nynasETYRMiA0LWu-CQ  2020-02-01 14:22:07  1     0           0            1        
+
+=== Local image files in Photos file storage ===
+working/Pixel 3/data/media/0/DCIM/.thumbnails/1581642305950.jpg
+working/Pixel 3/data/media/0/DCIM/imo/IMG_20200201_142207.jpg
+working/Pixel 3/data/media/0/DCIM/Restored/IMG_20190917_082637.jpg
+working/Pixel 3/data/media/0/DCIM/Camera/IMG_20200213_195030.jpg
+working/Pixel 3/data/media/0/DCIM/Camera/IMG_20200209_132353.jpg
